@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="notes.css">
+    <title>Cards</title>
+
+    <script>
+        function alteraClasse(classe) {
+            document.getElementById("cards").setAttribute("class", classe)
+        }
+
+        function alteraModal(classe) {
+            document.getElementById("modal").setAttribute("class", classe)
+        }
+
+        function selecionaNaTelaPequena(){
+            selecionado = document.getElementById("menu-cabecalho-tela-pequena").value;
+
+            switch (selecionado) {
+                case "l": alteraClasse("lista"); break;
+                case "gg": alteraClasse("grade-grande"); break;
+                case "gp": alteraClasse("grade-pequena");break;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <h1>Notas</h1>
+        <nav>
+            <select id="menu-cabecalho-tela-pequena" onchange="selecionaNaTelaPequena()">
+                <option disabled selected value>Visualização</option>
+                <option value="l">Lista</option>
+                <option value="gg">Grade grande</option>
+                <option value="gp">Grade pequena</option>
+            </select>
+            <button onclick="alteraModal('on')">i</button>
+        </nav>
+    </header>
+    <div id="main-container">
+        <aside>
+            <span>Visualização</span>
+            <ul>
+                <li><button onclick="alteraClasse('lista')">Lista</button></li>
+                <li><button onclick="alteraClasse('grade-grande')">Grade grande</button></li>
+                <li><button onclick="alteraClasse('grade-pequena')">Grade pequena</button></li>
+            </ul>
+        </aside>
+        <main>
+            <section>
+                <ul id="cards" class="lista">
+                    <li>1</li>
+                    <li>2</li>
+                    <li>3</li>
+                    <li>4</li>
+                    <li>5</li>
+                    <li>6</li>
+                    <li>7</li>
+                    <li>8</li>
+                    <li>9</li>
+                    <li>10</li>
+                    <li>11</li>
+                </ul>
+            </section>
+        </main>
+    </div>
+    <footer>
+        Footer
+    </footer>
+    <div id="modal" class="off">
+        <section>
+            <header>Cabeçalho</header>
+            <div>
+                Corpo
+            </div>
+            <footer>
+                <button onclick="alteraModal('off')">Fechar</button>
+            </footer>
+        </section>
+    </div>
+</body>
+
+</html>
